@@ -70,7 +70,7 @@ end
 
 function M:preload(job)
 	local cache = ya.file_cache(job)
-	if not cache or fs.cha(cache) then
+	if not cache or (fs.stat or fs.cha)(cache) then
 		return true
 	end
 
